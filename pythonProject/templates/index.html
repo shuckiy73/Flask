@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog</title>
+</head>
+<body>
+    <h1>Blog</h1>
+    <a href="{{ url_for('new_post') }}"><button>Add New Post</button></a>
+    <ul>
+        {% for post in posts %}
+        <li><a href="{{ url_for('get_post', post_id=post['id']) }}">{{ post['title'] }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
