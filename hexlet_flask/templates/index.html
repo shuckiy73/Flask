@@ -1,0 +1,33 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>Main page</title>
+    </head>
+    <body>
+        <h1>Главная страница</h1>
+    </body>
+</html> -->
+
+{% extends 'bootstrap/base.html' %}
+{% block title %}Main page{% endblock %}
+{% block content %}
+   {{super()}}
+   <div class="container text-center">
+       <form class="d-inline-block" style="max-width: 33%;">
+           <div class="form-group">
+               <label for="eventDate">Дата</label>
+               <input type="date" name="eventDate" class="form-control" placeholder="Дата события">
+           </div>
+           <div class="form-group">
+               <label for="eventName">Событие</label>
+               <a href="{{ url_for('view_events') }}"><h2>Посмотреть события</h2></a>
+               <input type="text" name="eventName" class="form-control" placeholder="Название события">
+           </div>
+           <div class="form-group">
+               <label for="eventDuration">Продолжительность</label>
+               <input type="number" name="eventDuration" class="form-control" placeholder="Продолжительность" min="1" max="24">
+           </div>
+           <button type="submit" class="btn btn-primary">Записать</button>
+       </form>
+   </div>
+{% endblock %}
